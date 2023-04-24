@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Item</title>
+</head>
+<body>
+<h3>Restaurante <span th:text="${restaurante.nome}"></span></h3>
+<form  action="#" th:action="@{/adicionar-cardapio/{idRestaurante}(idRestaurante=${restaurante.id})}" th:object="${itemcardapio}" method="post">
+    <label for="nome"><strong>Nome: </strong></label>
+    <input type="text" th:field="*{nome}" id="nome">
+    <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+    <br/>
+    <label for="descricao"><strong>Descrição: </strong></label>
+    <input type="text" th:field="*{descricao}" id="descricao">
+    <span th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"></span>
+    <br/>
+    <label for="preco"><strong>Preço: </strong></label>
+    <input type="number" th:field="*{preco}" id="preco">
+    <span th:if="${#fields.hasErrors('preco')}" th:errors="*{preco}"></span>
+    <br/>
+    <input type="submit" value="Adicionar">
+</form>
+<p><a th:href="@{/cardapio/{idRestaurante}(idRestaurante=${restaurante.id})}">Voltar cardapio</a></p>
+</body>
+</html>

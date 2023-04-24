@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Restaurante</title>
+</head>
+<body>
+<form action="#" th:action="@{/adicionar-restaurante}" th:object="${restaurante}" method="post">
+  <label for="nome"><strong>Nome: </strong></label>
+  <input type="text" th:field="*{nome}" id="nome">
+  <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+  <br/>
+
+  <input type="submit" value="Adicionar">
+</form>
+
+</body>
+</html>
